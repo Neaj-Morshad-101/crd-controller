@@ -5,6 +5,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
+	_ "k8s.io/code-generator"
 	"log"
 	"path/filepath"
 )
