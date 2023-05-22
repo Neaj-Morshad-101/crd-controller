@@ -1,11 +1,38 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Neaj-Morshad-101/kluster/pkg/apis/neajmorshad.dev/v1beta1"
+	"flag"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/util/homedir"
+	"log"
+	"path/filepath"
 )
 
 func main() {
-	k := v1beta1.Kluster{}
-	fmt.Println(k)
+	log.Println("Configuring KubeConfig...")
+
+	var kubeconfig *string
+
+	if home := homedir.HomeDir(); home != "" {
+		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
+	} else {
+		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
+	}
+
+	log.Printf("kubeconfig : %s", *kubeconfig)
+
+	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+	if err != nil {
+		panic(err)
+	}
+	//log.Printf("config : %s", config)
+
+	kubeClient, err := kubernetes.NewForConfig(config)
+	if err != nil {
+		panic(err)
+	}
+
+	println(kubeClient)
+
 }
