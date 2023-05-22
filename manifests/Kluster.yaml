@@ -1,0 +1,10 @@
+apiVersion: neajmorshad.dev/v1beta1
+kind: Kluster
+metadata:
+  name: example1
+spec:
+  name: test
+  container:
+    image: neajappscode/http-api-server:tagname
+    port: 8080
+  replicas: 4
