@@ -1,6 +1,6 @@
-module github.com/Neaj-Morshad-101/kluster
+module github.com/Neaj-Morshad-101/crd-controller
 
-go 1.18
+go 1.20
 
 require (
 	k8s.io/apimachinery v0.27.2
@@ -51,5 +51,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
-
-

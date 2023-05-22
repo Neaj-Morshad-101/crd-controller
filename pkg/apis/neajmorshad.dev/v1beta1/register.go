@@ -6,7 +6,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-var SchemeGroupVerson = schema.GroupVersion{
+var SchemeGroupVersion = schema.GroupVersion{
 	Group:   "neajmorshad.dev",
 	Version: "v1beta1",
 }
