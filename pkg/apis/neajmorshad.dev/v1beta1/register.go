@@ -7,20 +7,28 @@ import (
 )
 
 var SchemeGroupVerson = schema.GroupVersion{
-	Group:   neajmorshad.dev,
-	Version: v1beta1,
+	Group:   "neajmorshad.dev",
+	Version: "v1beta1",
 }
 
 var (
-	SchemeBuilder runtime.SchemeBuilder
+	SchemeBuilder      = runtime.NewSchemeBuilder(addKnownTypes)
+	localSchemeBuilder = &SchemeBuilder
+	AddToScheme        = localSchemeBuilder.AddToScheme
 )
 
+func Resource(resource string) schema.GroupResource {
+	return SchemeGroupVersion.WithResource(resource).GroupResource()
+}
+
 func init() {
-	SchemeBuilder.Register(addKnownTypes)
+	localSchemeBuilder.Register(addKnownTypes)
 }
 
 func addKnownTypes(scheme *runtime.Scheme) error {
-	scheme.AddKnownTypes(SchemeGroupVerson, &Kluster{}, &KlusterList{})
-	metav1.AddToGroupVersion(scheme, SchemeGroupVerson)
+	scheme.AddKnownTypes(SchemeGroupVersion, &Kluster{}, &KlusterList{})
+	scheme.AddKnownTypes(SchemeGroupVersion, &metav1.Status{})
+	metav1.AddToGroupVersion(scheme, SchemeGroupVersion)
 	return nil
+
 }
