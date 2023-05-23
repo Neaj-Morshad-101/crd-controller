@@ -10,16 +10,16 @@
 - Write a Custom Controller (crd-controller) to manage a Custom Resource (Kluster)
 
 ## Info: ##
-- Group Name: neajmorshad.dev
-- Version Name: v1beta1
-- Resource Name: Kluster
+- Group Name: `neajmorshad.dev`
+- Version Name: `v1beta1`
+- Resource Name: `Kluster`
 
 ## Procedure to run this project: ##
 - go to the project path. Example: $HOME/go/src/github.com/Neaj-Morshad-101/crd-controller/
 - import `"k8s.io/code-generator"` into `main.go`
 - run `go install sigs.k8s.io/controller-tools/cmd/controller-gen@latest`
 - run `go mod tidy;go mod vendor`
-- run chmod +x ./hack/update-codegen.sh
+- run chmod +x `./hack/update-codegen.sh`
 - run `chmod +x vendor/k8s.io/code-generator/generate-groups.sh`
 - run `hack/update-codegen.sh`
 - again run `go mod tidy;go mod vendor`
@@ -31,7 +31,7 @@
 
 
 ## Deploy Custom resources ##
-- kubectl apply -f neajmorshad.dev_klusters.yaml
+- kubectl apply -f `neajmorshad.dev_klusters.yaml`
 - Create an example yaml file like `manifests/kluster.yaml`.
 - Run `kubectl apply -f manifests/kluster.yaml`.
 - Run `kubectl get kluster`.
