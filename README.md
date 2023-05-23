@@ -40,6 +40,12 @@
 ## Resource ##
 https://www.linkedin.com/pulse/kubernetes-custom-controllers-part-1-kritik-sachdeva/
 https://www.linkedin.com/pulse/kubernetes-custom-controller-part-2-kritik-sachdeva/
+Workqueue example:
+https://github.com/kubernetes/client-go/tree/master/examples/workqueue
+Sample-controller
+https://github.com/kubernetes/sample-controller
+Code-Generator
+https://github.com/kubernetes/code-generator
 
 ## This YouTube video will help to understand the basic structure of a Custom Controller ##
 https://www.youtube.com/watch?v=89PdRvRUcPU&list=PLh4KH3LtJvRTtFWz1WGlyDa7cKjj2Sns0&index=4&ab_channel=VivekSingh
