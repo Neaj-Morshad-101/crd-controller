@@ -26,7 +26,7 @@ import (
 )
 
 type Controller struct {
-	// kuberclientset is a standard kubernetes clientset
+	// kubeclientset is a standard kubernetes clientset
 	kubeclientset kubernetes.Interface
 	// sampleclientset is a clientset for our own API group
 	sampleclientset   clientset.Interface
@@ -220,7 +220,7 @@ func (c *Controller) syncHandler(key string) error {
 			fmt.Println("strand", err)
 		}
 
-		fmt.Println("deployment name here for pritam das dot dev", deploymentName)
+		fmt.Println("deployment name here for neajmorshad.dev", deploymentName)
 	}
 	// If an error occurs during Get/Create, we'll requeue the item, so we can
 	// attempt processing again later. This could have been caused by a
