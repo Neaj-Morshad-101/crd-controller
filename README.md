@@ -41,6 +41,6 @@
 https://www.linkedin.com/pulse/kubernetes-custom-controllers-part-1-kritik-sachdeva/
 https://www.linkedin.com/pulse/kubernetes-custom-controller-part-2-kritik-sachdeva/
 
-## This youtube video will help to understand the basic structure of a Custom Controller ##
+## This YouTube video will help to understand the basic structure of a Custom Controller ##
 https://www.youtube.com/watch?v=89PdRvRUcPU&list=PLh4KH3LtJvRTtFWz1WGlyDa7cKjj2Sns0&index=4&ab_channel=VivekSingh
 
