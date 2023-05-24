@@ -2,8 +2,6 @@ package controller
 
 import (
 	"context"
-	"crypto/sha1"
-	"encoding/hex"
 	"fmt"
 	controllerv1 "github.com/Neaj-Morshad-101/crd-controller/pkg/apis/neajmorshad.dev/v1beta1"
 	clientset "github.com/Neaj-Morshad-101/crd-controller/pkg/client/clientset/versioned"
@@ -190,26 +188,11 @@ func (c *Controller) syncHandler(key string) error {
 	}
 	//fmt.Println("we are here")
 
-	deploymentName := kluster.Name + "-" + kluster.Spec.Name
+	deploymentName := "deployment-" + kluster.Name + "-" + kluster.Spec.Name
 	serviceName := "service-" + kluster.Name + "-" + kluster.Spec.Name
 	fmt.Println("got deployment name", deploymentName)
-	if kluster.Spec.Name == "" {
-		// We choose to absorb the error here as the worker would requeue the
-		// resource otherwise. Instead, the next time the resource is updated
-		// the resource will be queued again.
 
-		//utilruntime.HandleError(fmt.Errorf("%s : deployment name must be specified", key))
-		//return nil
-		s := "sha1 this string"
-		h := sha1.New()
-		h.Write([]byte(s))
-		sha1_hash := hex.EncodeToString(h.Sum(nil))
-
-		fmt.Println(s, sha1_hash)
-		deploymentName = kluster.Name + "-" + sha1_hash
-		serviceName = serviceName + sha1_hash
-	}
-	fmt.Println("we are here", kluster.Spec.Name)
+	//fmt.Println("we are here", kluster.Spec.Name)
 
 	// Get the deployment with the name specified in Kluster.spec
 	deployment, err := c.deploymentLister.Deployments(namespace).Get(deploymentName)
